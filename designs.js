@@ -19,19 +19,13 @@ buttonInput.addEventListener("submit", (e) => {
 function refreshPage() {
     window.location.reload();
 }
-/* Create color function to call later in makeGrid()
-can also be called from within makeGrid function
-ref: https://www.w3schools.com/jsref/prop_style_backgroundcolor.asp*/
-
+/* Create color function to call later in makeGrid()*/
 function color(e) {
-    /* target = object which the event will be used for
-    ref: https://developer.mozilla.org/en-US/docs/Web/API/Event/target */
+    /* target = object which the event will be used for*/
     e.target.style.backgroundColor = colorInput.value;
 }
-
 // When size is submitted by the user, call makeGrid()
 function makeGrid() {
-   /*  Tip from mentor Teha: clear the table at the beginning of the function */
     canvas.innerHTML = "";
     let height = gridHeight.value;
     let width = gridWidth.value;
@@ -43,10 +37,9 @@ function makeGrid() {
             let cell = row.insertCell(w);
 
             /* Call color function here to access individual cells */
-          /*   https://www.w3schools.com/jsref/event_onclick.asp */
             cell.addEventListener("click", color);
             }
         }
-        /* Append row with cells to canvas (table) ref: Mentor Teha*/
+        /* Append row with cells to canvas (table)*/
         canvas.appendChild(row);
     }
